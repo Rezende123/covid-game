@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'covid-game',
@@ -13,7 +13,7 @@ export class CovidGameComponent implements AfterViewInit {
   @ViewChild('covid')
   imageCovid: ElementRef;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngAfterViewInit() {
     this.imageInRandomPosition();
@@ -22,8 +22,17 @@ export class CovidGameComponent implements AfterViewInit {
   imageInRandomPosition() {
     const yMax = this.infectionArea.nativeElement.offsetHeight;
     const xMax = this.infectionArea.nativeElement.offsetWidth;
+    const imageHeight = this.imageCovid.nativeElement.offsetHeight;
+    const imageWidth = this.imageCovid.nativeElement.offsetWidth;
 
-    console.log(`Y: ${yMax}, X: ${xMax}`);
+    const positionX = this.randomInt(imageWidth, xMax - imageWidth);
+    const positionY = this.randomInt(imageHeight, yMax - imageHeight);
+
+    this.renderer.setStyle(this.imageCovid.nativeElement, 'left', `${positionX}px`);
+    this.renderer.setStyle(this.imageCovid.nativeElement, 'top', `${positionY}px`);
   }
 
+  randomInt(min, max) {
+    return min + Math.floor((max - min) * Math.random());
+  }
 }
