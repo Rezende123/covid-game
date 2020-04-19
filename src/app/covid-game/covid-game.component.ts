@@ -37,6 +37,9 @@ export class CovidGameComponent implements AfterViewInit {
 
     this.renderer.setStyle(this.imageCovid.nativeElement, 'left', `${this.position.x}px`);
     this.renderer.setStyle(this.imageCovid.nativeElement, 'top', `${this.position.y}px`);
+
+    this.position.x += imageWidth / 2;
+    this.position.y += imageHeight / 2;
   }
 
   randomInt(min, max) {
@@ -50,7 +53,7 @@ export class CovidGameComponent implements AfterViewInit {
   }
 
   detectProximity(distance: number) {
-    if (distance < 70) {
+    if (distance < 50) {
       console.log('chegou');
     } else
     if (distance < 100) {
@@ -74,18 +77,33 @@ export class CovidGameComponent implements AfterViewInit {
   }
 
   calculateDistance(pointA, pointB) {
-    const xMax = (pointA.x > pointB.x) ? pointA.x : pointB.x;
-    const yMax = (pointA.y > pointB.y) ? pointA.y : pointB.y;
+    let xMax = 0;
+    let yMax = 0;
+    let xMin = 0;
+    let yMin = 0;
 
-    const xMin = (pointA.x < pointB.x) ? pointA.x : pointB.x;
-    const yMin = (pointA.y < pointB.y) ? pointA.y : pointB.y;
+    if (pointA.x > pointB.x) {
+      xMax = pointA.x;
+      xMin = pointB.x;
+    } else {
+      xMax = pointB.x;
+      xMin = pointA.x;
+    }
+
+    if (pointA.y > pointB.y) {
+      yMax = pointA.y;
+      yMin = pointB.y;
+    } else {
+      yMax = pointB.y;
+      yMin = pointA.y;
+    }
 
     const widthTriangle = xMax - xMin;
     const heightTriangle = yMax - yMin;
 
-    const tangent = Math.sqrt( Math.pow(widthTriangle, 2) + Math.pow(heightTriangle, 2) );
+    const hypotenuse = Math.sqrt( Math.pow(widthTriangle, 2) + Math.pow(heightTriangle, 2) );
 
-    return tangent;
+    return hypotenuse;
   }
 
   playAudio(nameAudio: 'Panic' | 'TickTock'){
