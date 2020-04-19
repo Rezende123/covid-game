@@ -25,6 +25,7 @@ export class CovidGameComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.imageInRandomPosition();
     this.playAudio('TickTock');
+    this.hideImage();
   }
 
   imageInRandomPosition() {
@@ -43,6 +44,14 @@ export class CovidGameComponent implements AfterViewInit {
     this.position.y += imageHeight / 2;
   }
 
+  hideImage() {
+    if (this.isFound) {
+      this.renderer.setStyle(this.imageCovid.nativeElement, 'display', 'block');
+    } else {
+      this.renderer.setStyle(this.imageCovid.nativeElement, 'display', 'none');
+    }
+  }
+
   randomInt(min, max) {
     return min + Math.floor((max - min) * Math.random());
   }
@@ -58,9 +67,9 @@ export class CovidGameComponent implements AfterViewInit {
       if (!this.isFound) {
         this.audio.pause();
         this.playAudio('Panic', 1, false);
-        console.log('CHEGOU');
 
         this.isFound = true;
+        this.hideImage();
       }
     } else
     if (distance < 100) {
