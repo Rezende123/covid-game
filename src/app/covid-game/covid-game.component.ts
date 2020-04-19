@@ -24,7 +24,7 @@ export class CovidGameComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.imageInRandomPosition();
-    this.playAudio('TickTock');
+    this.playAudio('Water');
     this.hideImage();
   }
 
@@ -66,7 +66,7 @@ export class CovidGameComponent implements AfterViewInit {
     if (distance < 50) {
       if (!this.isFound) {
         this.audio.pause();
-        this.playAudio('Panic', 1, false);
+        this.playAudio('Suspense', 1, false);
 
         this.isFound = true;
         this.hideImage();
@@ -120,7 +120,7 @@ export class CovidGameComponent implements AfterViewInit {
     return hypotenuse;
   }
 
-  playAudio(nameAudio: 'Panic' | 'TickTock', volume = 0.2, loop = true){
+  playAudio(nameAudio: 'Suspense' | 'Water', volume = 0.2, loop = true){
     this.audio.src = `../../assets/musics/${nameAudio}.mp3`;
     this.audio.load();
     this.audio.play();
