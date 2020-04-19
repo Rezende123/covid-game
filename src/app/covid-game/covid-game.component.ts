@@ -15,6 +15,7 @@ export class CovidGameComponent implements AfterViewInit {
 
   position = {x: 0, y: 0};
   audio: HTMLAudioElement;
+  lastDistance: number;
 
   constructor(private renderer: Renderer2) { 
     this.audio = new Audio();
@@ -22,7 +23,7 @@ export class CovidGameComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.imageInRandomPosition();
-    this.playAudio('Panic');
+    this.playAudio('TickTock');
   }
 
   imageInRandomPosition() {
@@ -45,7 +46,31 @@ export class CovidGameComponent implements AfterViewInit {
   mousePosition(mouse) {
     const distance = this.calculateDistance(mouse, this.position);
 
-    console.log(`Distance: ${distance}`);
+    this.detectProximity(distance);
+  }
+
+  detectProximity(distance: number) {
+    if (distance < 70) {
+      console.log('chegou');
+    } else
+    if (distance < 100) {
+      this.audio.volume = 1;
+    } else
+    if (distance < 150) {
+      this.audio.volume = 0.8;
+    } else
+    if (distance < 200) {
+      this.audio.volume = 0.6;
+    } else
+    if (distance < 250) {
+      this.audio.volume = 0.4;
+    } else {
+      this.audio.volume = 0.2;
+    }
+
+    console.log(distance);
+
+    this.lastDistance = distance;
   }
 
   calculateDistance(pointA, pointB) {
