@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "covid-game"
+    }
+  },
+  "defaultProject": "covid-game",
+  "cli": {
+    "analytics": false
+  }
 }
