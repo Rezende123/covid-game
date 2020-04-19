@@ -16,8 +16,9 @@ export class CovidGameComponent implements AfterViewInit {
   position = {x: 0, y: 0};
   audio: HTMLAudioElement;
   lastDistance: number;
+  isFound = false;
 
-  constructor(private renderer: Renderer2) { 
+  constructor(private renderer: Renderer2) {
     this.audio = new Audio();
   }
 
@@ -54,7 +55,13 @@ export class CovidGameComponent implements AfterViewInit {
 
   detectProximity(distance: number) {
     if (distance < 50) {
-      console.log('chegou');
+      if (!this.isFound) {
+        this.audio.pause();
+        this.playAudio('Panic', 1, false);
+        console.log('CHEGOU');
+
+        this.isFound = true;
+      }
     } else
     if (distance < 100) {
       this.audio.volume = 1;
@@ -70,8 +77,6 @@ export class CovidGameComponent implements AfterViewInit {
     } else {
       this.audio.volume = 0.2;
     }
-
-    console.log(distance);
 
     this.lastDistance = distance;
   }
@@ -106,11 +111,11 @@ export class CovidGameComponent implements AfterViewInit {
     return hypotenuse;
   }
 
-  playAudio(nameAudio: 'Panic' | 'TickTock'){
+  playAudio(nameAudio: 'Panic' | 'TickTock', volume = 0.2, loop = true){
     this.audio.src = `../../assets/musics/${nameAudio}.mp3`;
     this.audio.load();
     this.audio.play();
-    this.audio.loop = true;
-    this.audio.volume = 0.2;
+    this.audio.loop = loop;
+    this.audio.volume = volume;
   }
 }
