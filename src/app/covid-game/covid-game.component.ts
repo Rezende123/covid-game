@@ -14,11 +14,15 @@ export class CovidGameComponent implements AfterViewInit {
   imageCovid: ElementRef;
 
   position = {x: 0, y: 0};
+  audio: HTMLAudioElement;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2) { 
+    this.audio = new Audio();
+  }
 
   ngAfterViewInit() {
     this.imageInRandomPosition();
+    this.playAudio('Panic');
   }
 
   imageInRandomPosition() {
@@ -57,5 +61,13 @@ export class CovidGameComponent implements AfterViewInit {
     const tangent = Math.sqrt( Math.pow(widthTriangle, 2) + Math.pow(heightTriangle, 2) );
 
     return tangent;
+  }
+
+  playAudio(nameAudio: 'Panic' | 'TickTock'){
+    this.audio.src = `../../assets/musics/${nameAudio}.mp3`;
+    this.audio.load();
+    this.audio.play();
+    this.audio.loop = true;
+    this.audio.volume = 0.2;
   }
 }
