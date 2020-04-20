@@ -79,6 +79,8 @@ export class CovidGameComponent implements AfterViewInit {
 
         this.isFound = true;
         this.hideImage();
+
+        this.openModal();
       }
     } else
     if (distance < 100) {
