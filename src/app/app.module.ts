@@ -3,22 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CovidGameComponent } from './covid-game/covid-game.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ModalMessageComponent} from './covid-game/modal-message/modal-message.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { CovidGameModule } from './covid-game/covid-game.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CovidGameComponent,
-    ModalMessageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule
+    CovidGameModule
   ],
   providers: [],
   bootstrap: [AppComponent]
