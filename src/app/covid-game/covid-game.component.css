@@ -5,6 +5,16 @@
     min-height: 100%;
 }
 
+.to-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
 img {
     height: 100px;
     width: 100px;

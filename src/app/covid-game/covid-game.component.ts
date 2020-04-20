@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, Renderer2, OnDestroy } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { ModalMessageComponent } from './modal-message/modal-message.component';
 
@@ -7,7 +7,7 @@ import { ModalMessageComponent } from './modal-message/modal-message.component';
   templateUrl: './covid-game.component.html',
   styleUrls: ['./covid-game.component.css']
 })
-export class CovidGameComponent implements AfterViewInit {
+export class CovidGameComponent {
 
   @ViewChild('infectionArea')
   infectionArea: ElementRef;
@@ -19,6 +19,7 @@ export class CovidGameComponent implements AfterViewInit {
   audio: HTMLAudioElement;
   lastDistance: number;
   isFound = false;
+  isPlayed = false;
 
   constructor(
     private renderer: Renderer2,
@@ -27,7 +28,8 @@ export class CovidGameComponent implements AfterViewInit {
     this.audio = new Audio();
   }
 
-  ngAfterViewInit() {
+  playGame() {
+    this.isPlayed = true;
     this.imageInRandomPosition();
     this.playAudio('Water');
     this.hideImage();
@@ -131,7 +133,7 @@ export class CovidGameComponent implements AfterViewInit {
     return hypotenuse;
   }
 
-  playAudio(nameAudio: 'Suspense' | 'Water', volume = 0.2, loop = true){
+  playAudio(nameAudio: 'Suspense' | 'Water', volume = 0, loop = true){
     this.audio.src = `../../assets/musics/${nameAudio}.mp3`;
     this.audio.load();
     this.audio.play();
