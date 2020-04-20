@@ -1,4 +1,6 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalMessageComponent } from './modal-message/modal-message.component';
 
 @Component({
   selector: 'covid-game',
@@ -18,7 +20,10 @@ export class CovidGameComponent implements AfterViewInit {
   lastDistance: number;
   isFound = false;
 
-  constructor(private renderer: Renderer2) {
+  constructor(
+    private renderer: Renderer2,
+    public dialog: MatDialog
+  ) {
     this.audio = new Audio();
   }
 
@@ -26,6 +31,10 @@ export class CovidGameComponent implements AfterViewInit {
     this.imageInRandomPosition();
     this.playAudio('Water');
     this.hideImage();
+  }
+
+  openModal() {
+    this.dialog.open(ModalMessageComponent);
   }
 
   imageInRandomPosition() {
