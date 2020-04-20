@@ -8,4 +8,4 @@ O covid-19 é um vilão de verdade e você pode ajudar na luta contra ele, se in
 
 ## O JOGO
 
-![GAME](./src/assets/video/CovidGame.mp4)
+![](./src/assets/gif/CovidGame.gif)
