@@ -37,6 +37,10 @@ export class CovidGameComponent {
 
   openModal() {
     this.dialog.open(ModalMessageComponent);
+
+    this.dialog.afterAllClosed.subscribe(() => {
+      window.location.reload();
+    });
   }
 
   imageInRandomPosition() {
