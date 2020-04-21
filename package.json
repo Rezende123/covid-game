@@ -1,6 +1,6 @@
 {
   "name": "covid-game",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --watch",
@@ -9,7 +9,19 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
+  "license": "ISC",
+  "keywords": [
+    "covid",
+    "web game",
+    "game",
+    "npm game"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rezende123/covid-game.git"
+  },
+  "author": "Felipe Rezende",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "^9.2.1",
