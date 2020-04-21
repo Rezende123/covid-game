@@ -79,7 +79,7 @@ export class CovidGameComponent {
 
   detectProximity(distance: number) {
     if (distance < 50) {
-      if (!this.isFound) {
+      if (!this.isFound && this.isPlayed) {
         this.audio.pause();
         this.playAudio('Suspense', 1, false);
 
