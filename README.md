@@ -9,3 +9,21 @@ O covid-19 é um vilão de verdade e você pode ajudar na luta contra ele, se in
 ## O JOGO
 
 ![](./src/assets/gif/CovidGame.gif)
+
+## Instalação
+
+Instalavel via npm em aplicações angular, ele é basicamente uma div que que se adapta a um elemento pai, então pode ser iserido em outras aplicações. Para instalar:
+```
+npm i covid-game
+```
+E colocar ele no módulo da sua aplicação:
+```
+import { CovidGameModule } from './covid-game/covid-game.module';
+    ...
+    imports: [
+        ...
+        CovidGameModule,
+        ...
+    ],
+    ...
+```
