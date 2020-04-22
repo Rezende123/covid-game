@@ -3,11 +3,16 @@
   "version": "1.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --watch",
+    "start": "ng serve",
+    "postinstall": "ng build --aot -prod",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.14.4"
   },
   "private": false,
   "license": "ISC",
