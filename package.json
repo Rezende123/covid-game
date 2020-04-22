@@ -28,6 +28,7 @@
   },
   "author": "Felipe Rezende",
   "dependencies": {
+    "@angular/cli": "9.1.1",
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "^9.2.1",
     "@angular/common": "~9.1.0",
