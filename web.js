@@ -1,5 +1,6 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const path = require('path');
+const app = express();
 
 app.use(express.static(__dirname + '/src/')); //aqui você define onde está o index.html da sua aplicação.
 
