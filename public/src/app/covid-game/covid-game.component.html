@@ -1,0 +1,6 @@
+<div id="infection-area" #infectionArea (document:mousemove)="mousePosition($event)">
+  <img src="../../assets/covid.jpeg" alt="covid" #covid>
+</div>
+<div class="to-play" *ngIf="!isPlayed" (click)="playGame()">
+  <h1>Clique aqui para começar</h1>
+</div>

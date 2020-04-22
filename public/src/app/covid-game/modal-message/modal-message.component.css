@@ -1,0 +1,8 @@
+.modal-message {
+    text-align: center;
+    max-width: 350px;
+}
+p {
+    text-align: justify;
+    font-size: 15px;
+}
