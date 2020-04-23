@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(__dirname + '/dist/covid-game/')); //aqui você define onde está o index.html da sua aplicação.
+app.use(express.static(__dirname + '/dist')); //aqui você define onde está o index.html da sua aplicação.
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(`${__dirname}/dist/covid-game/index.html`));
-});
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(`${__dirname}/dist/covid-game/index.html`));
+// });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8080);

@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "node web.js",
     "build": "ng build",
-    "run-watch": "node web.js",
     "postinstall": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
