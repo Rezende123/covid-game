@@ -12,9 +12,9 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng build && node server/web.js",
-    "build": "ng build && node server/web.js",
-    "run-watch": "ng build && node server/web.js",
+    "start": "ng build && node web.js",
+    "build": "ng build && node web.js",
+    "run-watch": "ng build && node web.js",
     "preinstall": "npm install -g @angular/cli",
     "postinstall": "ng build --aot -prod",
     "test": "ng test",
