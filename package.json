@@ -1,26 +1,15 @@
 {
   "name": "covid-game",
   "version": "1.0.1",
-  "watch": {
-    "run-watch": {
-      "patterns": [
-        "src",
-        "e2e"
-      ],
-      "extensions": "js,ts,css,html"
-    }
-  },
   "scripts": {
     "ng": "ng",
-    "start": "ng build && node web.js",
-    "build": "ng build && node web.js",
-    "run-watch": "ng build && node web.js",
-    "preinstall": "npm install -g @angular/cli",
-    "postinstall": "ng build --aot -prod",
+    "start": "node web.js",
+    "build": "ng build",
+    "run-watch": "node web.js",
+    "postinstall": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "watch": "npm-watch"
+    "e2e": "ng e2e"
   },
   "engines": {
     "node": "12.13.1",
@@ -40,6 +29,8 @@
   },
   "author": "Felipe Rezende",
   "dependencies": {
+    "@angular/cli": "~9.1.0",
+    "@angular/compiler-cli": "~9.1.0",
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "^9.2.1",
     "@angular/common": "~9.1.0",
@@ -58,8 +49,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.0",
-    "@angular/cli": "~9.1.0",
-    "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
