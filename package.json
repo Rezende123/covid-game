@@ -1,14 +1,26 @@
 {
   "name": "covid-game",
   "version": "1.0.1",
+  "watch": {
+    "run-watch": {
+      "patterns": [
+        "src",
+        "e2e"
+      ],
+      "extensions": "js,ts,css,html"
+    }
+  },
   "scripts": {
     "ng": "ng",
-    "start": "node web.js",
-    "postinstall": "ng build --prod --aot",
-    "build": "ng build --prod --aot",
+    "start": "ng build && node server/web.js",
+    "build": "ng build && node server/web.js",
+    "run-watch": "ng build && node server/web.js",
+    "preinstall": "npm install -g @angular/cli",
+    "postinstall": "ng build --aot -prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "watch": "npm-watch"
   },
   "engines": {
     "node": "12.13.1",
@@ -28,7 +40,6 @@
   },
   "author": "Felipe Rezende",
   "dependencies": {
-    "@angular/cli": "9.1.1",
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "^9.2.1",
     "@angular/common": "~9.1.0",
